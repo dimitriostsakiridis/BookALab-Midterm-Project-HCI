@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="768" prefWidth="1024" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab4Controller">
+   <children>
+      <Line endX="-100.0" endY="314.0" layoutX="581.0" layoutY="184.0" startX="-100.0" />
+      <Label layoutX="349.0" layoutY="196.0" prefHeight="35.0" prefWidth="109.0" text="ΑΙΘΟΥΣΑ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="253.0" layoutY="237.0" prefHeight="35.0" prefWidth="199.0" text="ΠΑΓΚΟΣ ΕΡΓΑΣΙΑΣ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="352.0" layoutY="324.0" prefHeight="35.0" prefWidth="102.0" text="ΟΝΟΜΑ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="280.0" prefHeight="35.0" prefWidth="126.0" text="ΕΠΩΝΥΜΟ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="512.0" layoutY="285.0" prefHeight="25.0" prefWidth="278.0" promptText="Εισάγετε Επίθετο.." />
+      <TextField layoutX="512.0" layoutY="329.0" prefHeight="25.0" prefWidth="278.0" promptText="Εισάγετε Όνομα..." />
+      <Label layoutX="288.0" layoutY="367.0" prefHeight="35.0" prefWidth="166.0" text="ΑΡ. ΜΗΤΡΩΟΥ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="512.0" layoutY="372.0" prefHeight="25.0" prefWidth="278.0" promptText="Εισάγετε Α.Μ. ..." />
+      <Label layoutX="375.0" layoutY="408.0" prefHeight="35.0" prefWidth="79.0" text="EMAIL">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="512.0" layoutY="413.0" prefHeight="25.0" prefWidth="278.0" promptText="Εισάγετε διεύθυνση ηλεκτρονικού ταχυδρομείου" />
+      <Label fx:id="selRoom" layoutX="512.0" layoutY="196.0" prefHeight="35.0" prefWidth="221.0" text="ΕΠΙΛΕΞΤΕ ΑΙΘΟΥΣΑ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="selTable" layoutX="512.0" layoutY="237.0" prefHeight="35.0" prefWidth="311.0" text="ΕΠΙΛΕΞΤΕ ΠΑΓΚΟ ΕΡΓΑΣΙΑΣ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

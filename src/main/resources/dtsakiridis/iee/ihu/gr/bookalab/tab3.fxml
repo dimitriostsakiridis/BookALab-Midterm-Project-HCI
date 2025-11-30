@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab3Controller">
+   <children>
+      <AnchorPane fx:id="Table3" layoutX="107.0" layoutY="117.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="3">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table2" layoutX="107.0" layoutY="297.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="2">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table1" layoutX="107.0" layoutY="478.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="1">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table4" layoutX="392.0" layoutY="117.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="4">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table5" layoutX="392.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" onMouseClicked="#handlePaneClick" text="5">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table7" layoutX="523.0" layoutY="117.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="7">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table6" layoutX="523.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="6">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table8" layoutX="806.0" layoutY="117.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="8">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table9" layoutX="806.0" layoutY="297.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="47.0" layoutY="50.0" text="9">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Table10" layoutX="806.0" layoutY="478.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handlePaneClick" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: d9d9d9;">
+         <children>
+            <Label layoutX="38.0" layoutY="54.0" prefHeight="63.0" prefWidth="45.0" text="10">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

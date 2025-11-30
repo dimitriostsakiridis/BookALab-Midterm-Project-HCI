@@ -17,15 +17,20 @@
                <fx:include source="tab1.fxml"/>
             </content>
           </Tab>
-          <Tab text="2. ΠΑΓΚΟΣ ΕΡΓΑΣΙΑΣ">
+          <Tab text="2. ΗΜΕΡΑ/ΩΡΑ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;" />
             </content>
           </Tab>
-            <Tab text="3. ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ">
+            <Tab text="3. ΠΑΓΚΟΣ ΕΡΓΑΣΙΑΣ">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                <fx:include source="tab3.fxml"/>
               </content>
+            </Tab>
+            <Tab text="4. ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ">
+                <content>
+                    <fx:include source="tab4.fxml"/>
+                </content>
             </Tab>
         </tabs>
       </TabPane>
