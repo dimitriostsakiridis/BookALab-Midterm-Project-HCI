@@ -2,14 +2,17 @@ package dtsakiridis.iee.ihu.gr.bookalab;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+
 
 public class Tab3Controller implements Initializable {
 
-    // 1. FXML Injected Variables (Must match fx:id in FXML)
     @FXML private AnchorPane Table1;
     @FXML private AnchorPane Table2;
     @FXML private AnchorPane Table3;
@@ -21,16 +24,15 @@ public class Tab3Controller implements Initializable {
     @FXML private AnchorPane Table9;
     @FXML private AnchorPane Table10;
 
-    // 2. Class Field for iteration (Initialized in initialize)
-    private AnchorPane[] Tables;
+    private static AnchorPane[] Tables;
+    private static final Random random = new Random();
 
-    // 3. Define color constants ONCE as class fields
-    private final String GREEN_STYLE = "-fx-background-color: #99DBA5;";
-    private final String GREY_STYLE = "-fx-background-color: #D9D9D9;";
+    private static final String GREEN_STYLE = "-fx-background-color: #99DBA5;";
+    private static final String GREY_STYLE = "-fx-background-color: #D9D9D9;";
+    private static final String RED_STYLE = "-fx-background-color: #ffcccc;";
 
-    /**
-     * Initializes the controller. This is where @FXML variables are guaranteed to be set.
-     */
+    public static void onSelected() {}
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Tables = new AnchorPane[]{
@@ -39,33 +41,75 @@ public class Tab3Controller implements Initializable {
         };
     }
 
-    /**
-     * Handles the click event for any of the table AnchorPanes, implementing a single-selection toggle.
-     */
     @FXML
     private void handlePaneClick(MouseEvent event) {
-
-        // Safely cast the source of the click (using Java 16+ pattern matching)
-        if (event.getSource() instanceof AnchorPane clickedPane) {
-
-            String currentStyle = clickedPane.getStyle();
-
-            // Step 1: Check if the clicked pane is ALREADY green before clearing all styles
-            boolean isCurrentlySelected = currentStyle != null && currentStyle.contains(GREEN_STYLE);
-
-            // Step 2: Deselect All: Iterate through the array and set every table to grey.
-            for (AnchorPane table : Tables) {
-                if (table != null) {
-                    table.setStyle(GREY_STYLE);
+        clearSelection();
+        if (event.getSource() instanceof AnchorPane clickedPane)
+            if(!clickedPane.getStyle().contains(RED_STYLE)) {
+                clickedPane.setStyle(clickedPane.getStyle() + GREEN_STYLE);
+                Node labelNode = clickedPane.getChildren().get(0);
+                if(labelNode instanceof Label tableLabel){
+                    DBFile.getInstance().setSelectedTable(tableLabel.getText());
                 }
             }
+    }
 
-            // Step 3: Select/Toggle: If it was NOT selected before the clear, select it now.
-            // If it WAS selected, it was just cleared to grey, completing the toggle.
-            if (!isCurrentlySelected) {
-                clickedPane.setStyle(GREEN_STYLE);
+    public static void populateSlots() {
+        String date = DBFile.getInstance().getSelectedDay();
+        String time = DBFile.getInstance().getSelectedTimeSlot();
+        String room = DBFile.getInstance().getSelRoom();
+
+        String key = room.concat(date).concat(time);
+        String[] slotstyles = DBFile.getInstance().tableslots.get(key);
+        System.out.println(key);
+        boolean found = slotstyles != null;
+        if(found)
+            savedPopulation(slotstyles);
+        else
+            randomPopulation();
+    }
+
+    public static void randomPopulation(){
+        String[] slotarr = new String[Tables.length];
+        int i=0;
+        for(AnchorPane slot : Tables) {
+            String APPLIED_STYLE = slot.getStyle();
+            if (random.nextInt(10) < 2) {
+                APPLIED_STYLE += RED_STYLE;
+                slot.setStyle(APPLIED_STYLE);
             }
+            slotarr[i++] = APPLIED_STYLE;
         }
-        // If the source wasn't an AnchorPane, the method simply returns.
+        String date = DBFile.getInstance().getSelectedDay();
+        String time = DBFile.getInstance().getSelectedTimeSlot();
+        String room = DBFile.getInstance().getSelRoom();
+
+        String key = room.concat(date).concat(time);
+        DBFile.getInstance().tableslots.put(key, slotarr);
+    }
+
+    public static void savedPopulation(String[] slotstyles){
+        int i=0;
+        for(AnchorPane slot : Tables) {
+            slot.setStyle(slotstyles[i++]);
+        }
+    }
+
+    public static void clearSelection(){
+            for(AnchorPane slot : Tables){
+                String CURRENT_STYLE = slot.getStyle();
+                if(CURRENT_STYLE.contains(GREEN_STYLE))
+                    slot.setStyle(CURRENT_STYLE.replace(GREEN_STYLE,GREY_STYLE));
+            }
+            DBFile.getInstance().setSelectedTable(DBFile.DEFAULT_ROOM);
+    }
+
+    public static void clearPopulation(){
+        for(AnchorPane slot : Tables){
+            String CURRENT_STYLE = slot.getStyle();
+            if(CURRENT_STYLE.contains(RED_STYLE))
+                slot.setStyle(CURRENT_STYLE.replace(RED_STYLE,""));
+
+        }
     }
 }
