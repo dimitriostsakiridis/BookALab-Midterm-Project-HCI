@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab2Controller">
+<AnchorPane maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab2Controller">
     <children>
         <HBox alignment="CENTER" fillHeight="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <GridPane alignment="CENTER" prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #f9f9f9; -fx-border-color: black; -fx-border-width: 1px;">
+                <GridPane fx:id="calendarPane" alignment="CENTER" prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #f9f9f9; -fx-border-color: black; -fx-border-width: 1px;">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

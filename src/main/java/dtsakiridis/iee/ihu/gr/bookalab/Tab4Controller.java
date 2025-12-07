@@ -86,6 +86,17 @@ public class Tab4Controller implements Initializable {
             return;
         }
 
+        if(instance.amInput.getText().equals(instance.amInput.getPromptText())){
+            String ALERT_MESSAGE = "Παρακαλώ πληκτρολογήστε τον αριθμό μητρώου σας.";
+            createAlert(ALERT_MESSAGE);
+            return;
+        } else if (instance.amInput.getText().length()>7) {
+            String ALERT_MESSAGE = "Επιτρέπονται έως και έξι αριθμοί";
+            createAlert(ALERT_MESSAGE);
+            return;
+        }
+
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Επιτυχής Καταχώρηση");
         alert.setHeaderText("Επιτυχής Καταχώρηση");

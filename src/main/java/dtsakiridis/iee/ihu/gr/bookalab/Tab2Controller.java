@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.time.DayOfWeek;
@@ -18,6 +19,10 @@ import java.util.ResourceBundle;
 import static java.util.stream.Collectors.toList;
 
 public class Tab2Controller implements Initializable {
+
+    //Calendar Pane
+    @FXML private GridPane calendarPane;
+
     //Header Slot Panes
     @FXML private AnchorPane mondayPane,tuesdayPane,wednesdayPane,thursdayPane,fridayPane;
 
@@ -28,18 +33,28 @@ public class Tab2Controller implements Initializable {
     @FXML private AnchorPane slotpane_04,slotpane_14,slotpane_24,slotpane_34,slotpane_44;
     @FXML private AnchorPane slotpane_05,slotpane_15,slotpane_25,slotpane_35,slotpane_45;
 
+    private static GridPane CalPane;
     private static AnchorPane[][] slotpanes;
     private static AnchorPane[] headerpanes;
-    private static final Random random = new Random(); // Initialize Random once
+    private static final Random random = new Random();
     private static final String RED_STYLE = "-fx-background-color: #ffcccc;";
     private static final String GREEN_STYLE = "-fx-background-color: #99DBA5;";
     private final String GREY_STYLE = "-fx-background-color: #D9D9D9;";
 
-    public static void onSelected() {}
+    public static void onSelected() {
+        boolean isRoomSelected = !DBFile.getInstance().getSelRoom().equals(DBFile.DEFAULT_ROOM);
+        if(isRoomSelected){
+            CalPane.setDisable(false);
+        }else{
+            CalPane.setDisable(true);
+            clearSelection();
+            clearPopulation();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        CalPane = calendarPane;
         headerpanes = new AnchorPane[] {mondayPane,tuesdayPane,wednesdayPane,thursdayPane,fridayPane};
 
         slotpanes = new AnchorPane[][]{
@@ -162,6 +177,18 @@ public class Tab2Controller implements Initializable {
                 String CURRENT_STYLE = slot.getStyle();
                 if(CURRENT_STYLE.contains(GREEN_STYLE))
                     slot.setStyle(CURRENT_STYLE.replace(GREEN_STYLE, ""));
+            }
+        }
+    }
+
+    public static void clearStyles(){
+        for(AnchorPane[] rowArray : slotpanes){
+            for(AnchorPane slot : rowArray){
+                String CURRENT_STYLE = slot.getStyle();
+                if(CURRENT_STYLE.contains(GREEN_STYLE))
+                    slot.setStyle(CURRENT_STYLE.replace(GREEN_STYLE,""));
+                else if(CURRENT_STYLE.contains(RED_STYLE))
+                    slot.setStyle(CURRENT_STYLE.replace(RED_STYLE,""));
             }
         }
     }

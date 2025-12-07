@@ -7,13 +7,10 @@ import java.util.Map;
 
 public class DBFile {
 
-    // 1. Create a single static instance of this class
     private static final DBFile instance = new DBFile();
 
-    // 2. Make the constructor private so no one can create a "new" one manually
     private DBFile() {}
 
-    // 3. This is the method everyone calls to get access
     public static DBFile getInstance() {
         return instance;
     }

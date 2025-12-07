@@ -3,9 +3,14 @@ package dtsakiridis.iee.ihu.gr.bookalab;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -23,7 +28,9 @@ public class Tab3Controller implements Initializable {
     @FXML private AnchorPane Table8;
     @FXML private AnchorPane Table9;
     @FXML private AnchorPane Table10;
+    @FXML private HBox tableBox;
 
+    private static HBox tBox;
     private static AnchorPane[] Tables;
     private static final Random random = new Random();
 
@@ -31,10 +38,21 @@ public class Tab3Controller implements Initializable {
     private static final String GREY_STYLE = "-fx-background-color: #D9D9D9;";
     private static final String RED_STYLE = "-fx-background-color: #ffcccc;";
 
-    public static void onSelected() {}
+    public static void onSelected() {
+        boolean isTSlotSelected = !DBFile.getInstance().getSelectedTimeSlot().equals(DBFile.DEFAULT_TIMESLOT);
+        if(isTSlotSelected)
+            tBox.setDisable(false);
+        else{
+            tBox.setDisable(true);
+            clearSelection();
+            clearPopulation();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tBox = tableBox;
+
         Tables = new AnchorPane[]{
                 Table1, Table2, Table3, Table4, Table5,
                 Table6, Table7, Table8, Table9, Table10
@@ -67,6 +85,13 @@ public class Tab3Controller implements Initializable {
             savedPopulation(slotstyles);
         else
             randomPopulation();
+
+        for(AnchorPane slot : Tables){
+            if(slot.getStyle().contains(RED_STYLE))
+                addStrikeThrough((Label)slot.getChildren().get(0));
+            else
+                removeStrikeThrough((Label)slot.getChildren().get(0));
+        }
     }
 
     public static void randomPopulation(){
@@ -74,7 +99,7 @@ public class Tab3Controller implements Initializable {
         int i=0;
         for(AnchorPane slot : Tables) {
             String APPLIED_STYLE = slot.getStyle();
-            if (random.nextInt(10) < 2) {
+            if (random.nextInt(10) < 1) {
                 APPLIED_STYLE += RED_STYLE;
                 slot.setStyle(APPLIED_STYLE);
             }
@@ -86,6 +111,20 @@ public class Tab3Controller implements Initializable {
 
         String key = room.concat(date).concat(time);
         DBFile.getInstance().tableslots.put(key, slotarr);
+    }
+
+    public static void addStrikeThrough(Label slotNum){
+        Text textNode = new Text(slotNum.getText());
+        textNode.setFont(slotNum.getFont());
+        textNode.setStrikethrough(true);
+        textNode.setFill(slotNum.getTextFill());
+        slotNum.setGraphic(textNode);
+        slotNum.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+    }
+
+    public static void removeStrikeThrough(Label slotNum){
+        slotNum.setContentDisplay(ContentDisplay.TEXT_ONLY);
+        slotNum.setGraphic(null);
     }
 
     public static void savedPopulation(String[] slotstyles){
@@ -107,8 +146,11 @@ public class Tab3Controller implements Initializable {
     public static void clearPopulation(){
         for(AnchorPane slot : Tables){
             String CURRENT_STYLE = slot.getStyle();
-            if(CURRENT_STYLE.contains(RED_STYLE))
+            if(CURRENT_STYLE.contains(RED_STYLE)){
                 slot.setStyle(CURRENT_STYLE.replace(RED_STYLE,""));
+                Label slotNum = (Label) slot.getChildren().get(0);
+                removeStrikeThrough(slotNum);
+            }
 
         }
     }
