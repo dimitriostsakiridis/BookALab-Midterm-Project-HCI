@@ -134,10 +134,14 @@
                 </HBox>
             </content>
         </ScrollPane>
-      <Label layoutX="179.0" layoutY="62.0" text="ΒΗΜΑ 1. ΕΠΙΛΕΞΤΕ ΜΙΑ ΕΡΓΑΣΤΗΡΙΑΚΗ ΑΙΘΟΥΣΑ.">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
+        <HBox alignment="CENTER" layoutY="62.0" prefHeight="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label text="ΒΗΜΑ 1. ΕΠΙΛΕΞΤΕ ΜΙΑ ΕΡΓΑΣΤΗΡΙΑΚΗ ΑΙΘΟΥΣΑ.">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
     </children>
 </AnchorPane>
