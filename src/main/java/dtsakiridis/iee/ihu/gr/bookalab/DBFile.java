@@ -21,7 +21,7 @@ public class DBFile {
 
     //-- Default Values--
     static final String DEFAULT_ROOM = "ΕΠΙΛΕΞΤΕ ΑΙΘΟΥΣΑ";
-    static final String DEFAULT_TABLE = "ΕΠΙΛΕΞΤΕ ΠΑΓΚΟΣ ΕΡΓΑΣΙΑΣ";
+    static final String DEFAULT_TABLE = "ΕΠΙΛΕΞΤΕ ΠΑΓΚΟ ΕΡΓΑΣΙΑΣ";
     static final String DEFAULT_DATE = "ΕΠΙΛΕΞΤΕ ΗΜΕΡΟΜΗΝΙΑ";
     static final String DEFAULT_TIMESLOT = "ΕΠΙΛΕΞΤΕ ΩΡΑ";
 
