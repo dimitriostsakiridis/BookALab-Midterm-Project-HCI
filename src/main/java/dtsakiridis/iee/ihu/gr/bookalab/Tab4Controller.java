@@ -30,10 +30,6 @@ public class Tab4Controller implements Initializable {
         instance.selTable.setText(SELECTED_TABLE);
         instance.selDate.setText(SELECTED_DATE);
         instance.selTimeslot.setText(SELECTED_TIMESLOT);
-        instance.lnameInput.setText("");
-        instance.fnameInput.setText("");
-        instance.amInput.setText("");
-        instance.emailInput.setText("");
     }
 
     public void setSelRoom(String value){
@@ -86,12 +82,18 @@ public class Tab4Controller implements Initializable {
             return;
         }
 
-        if(instance.amInput.getText().equals(instance.amInput.getPromptText())){
+        if(instance.amInput.getText().isEmpty()){
             String ALERT_MESSAGE = "Παρακαλώ πληκτρολογήστε τον αριθμό μητρώου σας.";
             createAlert(ALERT_MESSAGE);
             return;
         } else if (instance.amInput.getText().length()>7) {
             String ALERT_MESSAGE = "Επιτρέπονται έως και έξι αριθμοί";
+            createAlert(ALERT_MESSAGE);
+            return;
+        }
+
+        if(instance.emailInput.getText().isEmpty() || !instance.emailInput.getText().contains("@ihu.gr") ){
+            String ALERT_MESSAGE = "Παρακαλώ πληκτρολογήστε το ακαδημαϊκό email σας.";
             createAlert(ALERT_MESSAGE);
             return;
         }
@@ -104,7 +106,14 @@ public class Tab4Controller implements Initializable {
         alert.showAndWait();
         DBFile.getInstance().clearSelection();
         onSelected();
+        clearFields();
+    }
 
+    public static void clearFields(){
+        instance.lnameInput.setText("");
+        instance.fnameInput.setText("");
+        instance.amInput.setText("");
+        instance.emailInput.setText("");
     }
 
     public static void createAlert(String message){

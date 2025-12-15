@@ -3,10 +3,13 @@ package dtsakiridis.iee.ihu.gr.bookalab;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.time.DayOfWeek;
@@ -48,7 +51,7 @@ public class Tab2Controller implements Initializable {
         }else{
             CalPane.setDisable(true);
             clearSelection();
-            clearPopulation();
+            clearStyles();
         }
     }
 
@@ -125,6 +128,22 @@ public class Tab2Controller implements Initializable {
             randomPopulation();
         }
 
+        for(AnchorPane[] rowArray : slotpanes){
+            for(AnchorPane slot : rowArray){
+                Label[] children = {
+                        (Label) slot.getChildren().get(0),
+                        (Label) slot.getChildren().get(1),
+                };
+                if(slot.getStyle().contains(RED_STYLE)){
+                    for(Label child : children)
+                        Tab3Controller.addStrikeThrough(child);
+                }else{
+                    for(Label child : children)
+                        Tab3Controller.removeStrikeThrough(child);
+                }
+            }
+        }
+
     }
 
     public static void savedPopulation(String[][] slotstyles){
@@ -187,8 +206,16 @@ public class Tab2Controller implements Initializable {
                 String CURRENT_STYLE = slot.getStyle();
                 if(CURRENT_STYLE.contains(GREEN_STYLE))
                     slot.setStyle(CURRENT_STYLE.replace(GREEN_STYLE,""));
-                else if(CURRENT_STYLE.contains(RED_STYLE))
+                else if(CURRENT_STYLE.contains(RED_STYLE)){
                     slot.setStyle(CURRENT_STYLE.replace(RED_STYLE,""));
+                    Label[] children = {
+                            (Label)slot.getChildren().get(0),
+                            (Label)slot.getChildren().get(1),
+                    };
+                    for(Label child : children)
+                        Tab3Controller.removeStrikeThrough(child);
+                }
+
             }
         }
     }

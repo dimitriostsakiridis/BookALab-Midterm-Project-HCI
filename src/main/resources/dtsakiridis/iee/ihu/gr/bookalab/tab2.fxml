@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab2Controller">
+<AnchorPane maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab2Controller">
     <children>
-        <HBox alignment="CENTER" fillHeight="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="CENTER" fillWidth="false" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <padding>
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+            </padding>
+
             <children>
+                <Label text="ΒΗΜΑ 2. ΕΠΙΛΕΞΤΕ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+
                 <GridPane fx:id="calendarPane" alignment="CENTER" prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #f9f9f9; -fx-border-color: black; -fx-border-width: 1px;">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -217,6 +230,6 @@
                     </children>
                 </GridPane>
             </children>
-        </HBox>
+        </VBox>
     </children>
 </AnchorPane>

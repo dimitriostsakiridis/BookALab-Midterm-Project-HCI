@@ -150,6 +150,8 @@ public class Tab3Controller implements Initializable {
                 slot.setStyle(CURRENT_STYLE.replace(RED_STYLE,""));
                 Label slotNum = (Label) slot.getChildren().get(0);
                 removeStrikeThrough(slotNum);
+            }else if(CURRENT_STYLE.contains(GREEN_STYLE)){
+                slot.setStyle(CURRENT_STYLE.replace(GREEN_STYLE,""));
             }
 
         }

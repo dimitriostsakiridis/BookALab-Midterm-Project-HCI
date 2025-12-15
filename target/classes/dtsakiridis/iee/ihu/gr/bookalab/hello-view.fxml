@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.HelloController">
     <children>
@@ -13,6 +14,11 @@
             <items>
                 <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
+                        <Tab fx:id="tab0" text="ΑΡΧΙΚΗ">
+                            <content>
+                                <fx:include source="tab0.fxml" />
+                            </content>
+                        </Tab>
                         <Tab fx:id="tab1" text="1. ΑΙΘΟΥΣΑ">
                             <content>
                                 <fx:include source="tab1.fxml" />
@@ -36,14 +42,34 @@
                     </tabs>
                 </TabPane>
 
-                <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="1022.0">
+                <AnchorPane fx:id="btnPane" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="1022.0">
                     <children>
-                        <HBox alignment="CENTER" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                        <HBox fx:id="ctrlPane" alignment="CENTER" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <Button fx:id="prevBtn" mnemonicParsing="false" onMouseClicked="#handleBtnClick" prefHeight="48.0" prefWidth="107.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px;" text="ΠΡΟΗΓΟΥΜΕΝΟ" />
-                                <Button fx:id="nextBtn" mnemonicParsing="false" onMouseClicked="#handleBtnClick" prefHeight="48.0" prefWidth="107.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px;" text="ΕΠΟΜΕΝΟ" />
+                                <Button fx:id="prevBtn" mnemonicParsing="false" onMouseClicked="#handleBtnClick" prefHeight="48.0" prefWidth="200.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px;" text="ΠΡΟΗΓΟΥΜΕΝΟ" visible="false">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="nextBtn" mnemonicParsing="false" onMouseClicked="#handleBtnClick" prefHeight="48.0" prefWidth="200.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px;" text="ΕΠΟΜΕΝΟ" visible="false">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Button>
                             </children>
                         </HBox>
+
+                        <HBox fx:id="startPane" alignment="CENTER" pickOnBounds="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Button fx:id="startBtn" mnemonicParsing="false" onMouseClicked="#handleBtnClick" prefHeight="48.0" prefWidth="296.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Ας Ξεκινήσουμε">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+
                     </children>
                 </AnchorPane>
 

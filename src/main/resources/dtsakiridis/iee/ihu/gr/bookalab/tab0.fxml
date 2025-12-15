@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dtsakiridis.iee.ihu.gr.bookalab.Tab0Controller">
+   <children>
+      <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+
+            <Label text="BookALab" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="128.0" />
+               </font>
+            </Label>
+
+            <Separator maxWidth="680.0" style="-fx-background-color: black;" />
+
+            <Label text="ΕΦΑΡΜΟΓΗ ΚΡΑΤΗΣΕΩΝ ΕΡΓΑΣΤΗΡΙΑΚΩΝ" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label text="ΑΙΘΟΥΣΩΝ ΓΙΑ ΦΟΙΤΗΤΕΣ Μ.Π.Η.Σ" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
